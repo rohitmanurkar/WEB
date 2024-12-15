@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>H</h2>
+            </div>
+            <nav>
+                <a href="#" class="nav-item active"><span class="icon">🏠</span></a>
+                <a href="#" class="nav-item"><span class="icon">📅</span></a>
+                <a href="#" class="nav-item"><span class="icon">📊</span></a>
+                <a href="#" class="nav-item"><span class="icon">👥</span></a>
+                <a href="#" class="nav-item"><span class="icon">⚙️</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item"><span class="icon">↩️</span></a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="header-left">
+                    <h1 class="animate-in">Hello, Alex!</h1>
+                    <p class="animate-in">Ready for today's challenges?</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-container animate-in">
+                        <input type="search" placeholder="Search for some activities" class="search-input">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <button class="btn-notification animate-in">🔔</button>
+                    <button class="btn-premium animate-in">Premium</button>
+                    <button id="themeToggle" class="btn-theme animate-in">🌓</button>
+                </div>
+            </header>
+            <div class="dashboard-grid">
+                <section class="activity-overview animate-in">
+                    <h2>Physical Activity</h2>
+                    <div class="activity-chart">
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                    <div class="activity-stats">
+                        <div class="stat-item">
+                            <h3>Steps</h3>
+                            <p class="stat-value" id="steps">0</p>
+                            <p class="stat-info">Goal: 8,000</p>
+                            <p class="stat-info">Average: 9,450</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Calories burned</h3>
+                            <p class="stat-value" id="calories">0</p>
+                            <p class="stat-info">Goal: 500</p>
+                            <p class="stat-info">Average: 646</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Activity time</h3>
+                            <p class="stat-value" id="activity-time">2h 45min</p>
+                            <p class="stat-info">Goal: 2h</p>
+                            <p class="stat-info">Average: 2h 30min</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="calendar-section animate-in">
+                    <h2>Your Active Days</h2>
+                    <div class="calendar-header">
+                        <button id="prevMonth" class="month-nav">&lt;</button>
+                        <h3 id="currentMonth" class="current-month">November</h3>
+                        <button id="nextMonth" class="month-nav">&gt;</button>
+                    </div>
+                    <div class="calendar" id="calendar"></div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <span class="legend-color inactive"></span>
+                            <span>Inactive</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color low"></span>
+                            <span>Low Activity</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color medium"></span>
+                            <span>Medium Activity</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color high"></span>
+                            <span>High Activity</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="sleep-section animate-in">
+                    <h2>Sleep Time</h2>
+                    <p>You're almost there</p>
+                    <div class="progress-ring-container">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring__circle" stroke="#3498db" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        </svg>
+                        <div class="progress-ring__text">7.45h</div>
+                    </div>
+                    <p>Goal is 8 hours</p>
+                    <div class="sleep-stats">
+                        <div class="sleep-stat">
+                            <span class="sleep-stat-label">Deep Sleep</span>
+                            <span class="sleep-stat-value">2.5h</span>
+                        </div>
+                        <div class="sleep-stat">
+                            <span class="sleep-stat-label">REM</span>
+                            <span class="sleep-stat-value">1.8h</span>
+                        </div>
+                        <div class="sleep-stat">
+                            <span class="sleep-stat-label">Light Sleep</span>
+                            <span class="sleep-stat-value">3.15h</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="weight-section animate-in">
+                    <h2>Weight Loss Plan</h2>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%;"></div>
+                    </div>
+                    <p>80% completed</p>
+                    <div class="weight-range">
+                        <span>80kg</span>
+                        <span>70kg</span>
+                    </div>
+                    <div class="diet-chart">
+                        <h3>Today's Diet Plan</h3>
+                        <ul class="diet-list">
+                            <li class="diet-item">
+                                <span class="diet-time">Breakfast</span>
+                                <span class="diet-meal">Oatmeal with berries</span>
+                                <span class="diet-calories">300 cal</span>
+                            </li>
+                            <li class="diet-item">
+                                <span class="diet-time">Lunch</span>
+                                <span class="diet-meal">Grilled chicken salad</span>
+                                <span class="diet-calories">450 cal</span>
+                            </li>
+                            <li class="diet-item">
+                                <span class="diet-time">Dinner</span>
+                                <span class="diet-meal">Baked salmon with veggies</span>
+                                <span class="diet-calories">400 cal</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="activities-section animate-in">
+                    <div class="activities-header">
+                        <div class="activities-title">
+                            <h2>My Activities</h2>
+                            <p>You have 6 planned activities</p>
+                        </div>
+                        <div class="activity-filters">
+                            <button class="btn-filter active" data-filter="all">All</button>
+                            <button class="btn-filter" data-filter="alone">Alone</button>
+                            <button class="btn-filter" data-filter="friends">With friends</button>
+                        </div>
+                    </div>
+                    <div class="activity-list" id="activityList"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
